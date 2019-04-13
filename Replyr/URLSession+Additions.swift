@@ -18,9 +18,7 @@ extension URLSession {
         guard let url = response.url else {
           throw URLSessionExtensionError.urlNotFound
         }
-        
-        #warning("todo: set version")
-        
+
         var fields = [HTTPField]()
         
         if let headerFields = response.allHeaderFields as? [String: String] {
