@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		574D605A22628E93007F69C7 /* URL+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D605922628E93007F69C7 /* URL+Additions.swift */; };
 		57CCDA9B22624AFE00CB4F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */; };
 		57CCDA9D22624AFE00CB4F15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */; };
 		57CCDAA022624AFE00CB4F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57CCDA9E22624AFE00CB4F15 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		574D605922628E93007F69C7 /* URL+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Additions.swift"; sourceTree = "<group>"; };
 		57CCDA9722624AFE00CB4F15 /* Replyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Replyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				57CCDAB32262690100CB4F15 /* RemoteMessageGateway.swift */,
 				57CCDAA122624AFE00CB4F15 /* Replyr.xcdatamodeld */,
 				57CCDAB522626A3D00CB4F15 /* ResultHandler.swift */,
+				574D605922628E93007F69C7 /* URL+Additions.swift */,
 			);
 			path = Replyr;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				57CCDAB8226270FD00CB4F15 /* MessageGateway.swift in Sources */,
 				57CCDAA322624AFE00CB4F15 /* Replyr.xcdatamodeld in Sources */,
 				57CCDABA2262712B00CB4F15 /* LocalMessageGateway.swift in Sources */,
+				574D605A22628E93007F69C7 /* URL+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

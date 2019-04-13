@@ -3,12 +3,7 @@ import Foundation
 class RemoteMessageGateway: MessageGateway {
   func addMessage(with spec: MessageSpec, resultHandler: @escaping ResultHandler<Void, Error>) {
     do {
-      var components = URLComponents()
-      components.scheme = "https"
-      components.host = ""
-      components.path = ""
-      
-      guard let url = components.url else {
+      guard let url = URL(scheme: "https", host: "host", pathComponents: [""]) else {
         throw MessageGatewayError.urlNotFound
       }
       
@@ -50,12 +45,7 @@ class RemoteMessageGateway: MessageGateway {
   func messages(resultHandler: @escaping ResultHandler<[Message], Error>) {
     DispatchQueue.global().async {
       do {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = ""
-        components.path = ""
-        
-        guard let url = components.url else {
+        guard let url = URL(scheme: "https", host: "host", pathComponents: [""]) else {
           throw MessageGatewayError.urlNotFound
         }
         
