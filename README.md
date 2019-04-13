@@ -17,6 +17,7 @@ A chat app that allows a user to send and view messages in a single public chann
 #### Client
 * iOS app
 #### API
+[Repository](https://github.com/azarjustinnick/replyr-api)
 * Elixir
 * Heroku hosted
 #### Data store
