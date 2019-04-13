@@ -4,7 +4,7 @@ A chat app.
 
 ## MVP
 
-A chat app that allows a user to send messages to a single public channel.
+A chat app that allows a user to send and view messages in a single public channel.
 
 ### Basic UI
 * Text view of previous messages in channel
