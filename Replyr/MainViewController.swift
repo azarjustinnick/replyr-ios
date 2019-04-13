@@ -46,7 +46,11 @@ class MainViewController: UIViewController {
       username: username
     )
     
+    let backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: UUID().uuidString)
+    
     messageGateway.addMessage(with: messageSpec) { [weak self] result in
+      UIApplication.shared.endBackgroundTask(backgroundTaskID)
+      
       do {
         try result.get()
         
