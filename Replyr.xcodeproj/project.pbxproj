@@ -15,8 +15,10 @@
 		57CCDAA822624AFF00CB4F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57CCDAA622624AFF00CB4F15 /* LaunchScreen.storyboard */; };
 		57CCDAB022625BEF00CB4F15 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAAF22625BEF00CB4F15 /* Message.swift */; };
 		57CCDAB22262688500CB4F15 /* MessageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAB12262688500CB4F15 /* MessageSpec.swift */; };
-		57CCDAB42262690100CB4F15 /* MessageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAB32262690100CB4F15 /* MessageGateway.swift */; };
+		57CCDAB42262690100CB4F15 /* RemoteMessageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAB32262690100CB4F15 /* RemoteMessageGateway.swift */; };
 		57CCDAB622626A3D00CB4F15 /* ResultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAB522626A3D00CB4F15 /* ResultHandler.swift */; };
+		57CCDAB8226270FD00CB4F15 /* MessageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAB7226270FD00CB4F15 /* MessageGateway.swift */; };
+		57CCDABA2262712B00CB4F15 /* LocalMessageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDAB92262712B00CB4F15 /* LocalMessageGateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +32,10 @@
 		57CCDAA922624AFF00CB4F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57CCDAAF22625BEF00CB4F15 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		57CCDAB12262688500CB4F15 /* MessageSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSpec.swift; sourceTree = "<group>"; };
-		57CCDAB32262690100CB4F15 /* MessageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGateway.swift; sourceTree = "<group>"; };
+		57CCDAB32262690100CB4F15 /* RemoteMessageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMessageGateway.swift; sourceTree = "<group>"; };
 		57CCDAB522626A3D00CB4F15 /* ResultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHandler.swift; sourceTree = "<group>"; };
+		57CCDAB7226270FD00CB4F15 /* MessageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGateway.swift; sourceTree = "<group>"; };
+		57CCDAB92262712B00CB4F15 /* LocalMessageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMessageGateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +72,13 @@
 				57CCDAA422624AFF00CB4F15 /* Assets.xcassets */,
 				57CCDAA922624AFF00CB4F15 /* Info.plist */,
 				57CCDAA622624AFF00CB4F15 /* LaunchScreen.storyboard */,
+				57CCDAB92262712B00CB4F15 /* LocalMessageGateway.swift */,
 				57CCDA9E22624AFE00CB4F15 /* Main.storyboard */,
 				57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */,
 				57CCDAAF22625BEF00CB4F15 /* Message.swift */,
-				57CCDAB32262690100CB4F15 /* MessageGateway.swift */,
+				57CCDAB7226270FD00CB4F15 /* MessageGateway.swift */,
 				57CCDAB12262688500CB4F15 /* MessageSpec.swift */,
+				57CCDAB32262690100CB4F15 /* RemoteMessageGateway.swift */,
 				57CCDAA122624AFE00CB4F15 /* Replyr.xcdatamodeld */,
 				57CCDAB522626A3D00CB4F15 /* ResultHandler.swift */,
 			);
@@ -152,11 +158,13 @@
 			files = (
 				57CCDA9D22624AFE00CB4F15 /* MainViewController.swift in Sources */,
 				57CCDAB22262688500CB4F15 /* MessageSpec.swift in Sources */,
-				57CCDAB42262690100CB4F15 /* MessageGateway.swift in Sources */,
+				57CCDAB42262690100CB4F15 /* RemoteMessageGateway.swift in Sources */,
 				57CCDAB622626A3D00CB4F15 /* ResultHandler.swift in Sources */,
 				57CCDAB022625BEF00CB4F15 /* Message.swift in Sources */,
 				57CCDA9B22624AFE00CB4F15 /* AppDelegate.swift in Sources */,
+				57CCDAB8226270FD00CB4F15 /* MessageGateway.swift in Sources */,
 				57CCDAA322624AFE00CB4F15 /* Replyr.xcdatamodeld in Sources */,
+				57CCDABA2262712B00CB4F15 /* LocalMessageGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,14 +5,14 @@ class MainViewController: UIViewController {
   @IBOutlet weak var textTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
   
-  private let messageGateway = MessageGateway()
+  private let messageGateway = LocalMessageGateway()
   private var messages = [Message]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
   }
   
-  @IBAction func fetch(_ sender: UIButton) {
+  private func fetchMessages() {
     messageGateway.messages() { [weak self] result in
       do {
         let messages = try result.get()
@@ -23,12 +23,16 @@ class MainViewController: UIViewController {
         }
       }
       catch {
-        
+        print(error)
       }
     }
   }
   
-  @IBAction func send(_ sender: UIButton) {
+  @IBAction func fetchMessages(_ sender: UIButton) {
+    fetchMessages()
+  }
+  
+  @IBAction func sendMessage(_ sender: UIButton) {
     guard let username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
       return
     }
@@ -42,8 +46,14 @@ class MainViewController: UIViewController {
       username: username
     )
     
-    messageGateway.addMessage(with: messageSpec) { result in
-      
+    messageGateway.addMessage(with: messageSpec) { [weak self] result in
+      do {
+        try result.get()
+        self?.fetchMessages()
+      }
+      catch {
+        print(error)
+      }
     }
   }
 }
@@ -55,7 +65,8 @@ extension MainViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath)
-    cell.textLabel?.text = messages[indexPath.row].text
+    cell.detailTextLabel?.text = messages[indexPath.row].text
+    cell.textLabel?.text = messages[indexPath.row].username
     return cell
   }
 }

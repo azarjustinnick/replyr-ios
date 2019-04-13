@@ -5,3 +5,5 @@ struct Message: Codable {
   let timestamp: Date
   let username: String
 }
+
+
