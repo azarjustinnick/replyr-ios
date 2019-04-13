@@ -4,7 +4,7 @@ A chat app.
 
 ## MVP
 
-A chat app that allows a user to send messages to a single public channel
+A chat app that allows a user to send messages to a single public channel.
 
 ### Basic UI
 * Text view of previous messages in channel
@@ -13,12 +13,16 @@ A chat app that allows a user to send messages to a single public channel
 * Button to send message
 * Button to fetch new messages in channel
 
-## Next up
+## Future improvements
 
 * Automatically display new messages
-* Multiple channels / channel switcher
-* Identity management and auth
 * Use push notifications to communicate new state to the app
+* Identity management and auth
+
+## Vision
+* Multiple channels with a channel switcher
+* Direct messages
+* Thread-based channel communication
 
 ## Terminology
 
