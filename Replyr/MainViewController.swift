@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     tableView.dataSource = self
     tableView.delegate = self
+    textTextField.delegate = self
   }
   
   private func fetchMessages() {
@@ -30,11 +31,7 @@ class MainViewController: UIViewController {
     }
   }
   
-  @IBAction func fetchMessages(_ sender: UIButton) {
-    fetchMessages()
-  }
-  
-  @IBAction func sendMessage(_ sender: UIButton) {
+  private func sendMessage() {
     guard let username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
       return
     }
@@ -51,12 +48,24 @@ class MainViewController: UIViewController {
     messageGateway.addMessage(with: messageSpec) { [weak self] result in
       do {
         try result.get()
-        self?.fetchMessages()
+        
+        DispatchQueue.main.async { [weak self] in
+          self?.textTextField.text = nil
+          self?.fetchMessages()
+        }
       }
       catch {
         print(error)
       }
     }
+  }
+  
+  @IBAction func fetchMessages(_ sender: UIButton) {
+    fetchMessages()
+  }
+  
+  @IBAction func sendMessage(_ sender: UIButton) {
+    sendMessage()
   }
 }
 
@@ -77,3 +86,9 @@ extension MainViewController: UITableViewDelegate {
   
 }
 
+extension MainViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    sendMessage()
+    return false
+  }
+}
