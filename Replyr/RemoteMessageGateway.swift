@@ -3,29 +3,29 @@ import Foundation
 class RemoteMessageGateway: MessageGateway {
   func addMessage(with spec: MessageSpec, resultHandler: @escaping ResultHandler<Void, Error>) {
     do {
-      guard let url = URL(scheme: "https", host: "host", pathComponents: [""]) else {
+      guard let url = URL(scheme: "https", host: "replyr.herokuapp.com", pathComponents: ["chat", "channel", "general", "message"]) else {
         throw MessageGatewayError.urlNotFound
       }
       
-      var request = URLRequest(url: url)
-      request.httpBody = try JSONEncoder().encode(spec)
+      let httpInput = HTTPInput(
+        body: try JSONEncoder().encode(spec),
+        head: HTTPInputHead(
+          fields: [HTTPField](),
+          method: .post,
+          url: url
+        )
+      )
       
-      let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+      URLSession.shared.httpOutput(withHTTPInput: httpInput) { result in
         do {
-          if let error = error {
-            throw error
-          }
+          let httpOutput = try result.get()
           
-          guard let response = response as? HTTPURLResponse else {
-            throw MessageGatewayError.invalidResponse
-          }
-          
-          switch response.statusCode {
-          case 200:
-            let result = Result<Void, Error>.success(())
-            resultHandler(result)
-          default:
-            throw MessageGatewayError.invalidStatusCode
+          switch httpOutput.head.statusCode {
+            case 200:
+              let result = Result<Void, Error>.success(())
+              resultHandler(result)
+            default:
+              throw MessageGatewayError.invalidStatusCode
           }
         }
         catch {
@@ -33,8 +33,6 @@ class RemoteMessageGateway: MessageGateway {
           resultHandler(result)
         }
       }
-      
-      task.resume()
     }
     catch {
       let result = Result<Void, Error>.failure(error)
@@ -45,33 +43,34 @@ class RemoteMessageGateway: MessageGateway {
   func messages(resultHandler: @escaping ResultHandler<[Message], Error>) {
     DispatchQueue.global().async {
       do {
-        guard let url = URL(scheme: "https", host: "host", pathComponents: [""]) else {
+        guard let url = URL(scheme: "https", host: "replyr.herokuapp.com", pathComponents: ["chat", "channel", "general"]) else {
           throw MessageGatewayError.urlNotFound
         }
         
-        let request = URLRequest(url: url)
+        let httpInput = HTTPInput(
+          body: nil,
+          head: HTTPInputHead(
+            fields: [HTTPField](),
+            method: .get,
+            url: url
+          )
+        )
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.httpOutput(withHTTPInput: httpInput) { result in
           do {
-            if let error = error {
-              throw error
-            }
+            let httpOutput = try result.get()
             
-            guard let response = response as? HTTPURLResponse else {
-              throw MessageGatewayError.invalidResponse
-            }
-            
-            switch response.statusCode {
+            switch httpOutput.head.statusCode {
             case 200:
-              guard let data = data else {
+              guard let body = httpOutput.body else {
                 throw MessageGatewayError.dataNotFound
               }
               
-              let messages = try JSONDecoder().decode([Message].self, from: data)
+              let messages = try JSONDecoder().decode(Channel.self, from: body).messages
               let result = Result<[Message], Error>.success(messages)
               resultHandler(result)
             default:
-              break
+              throw MessageGatewayError.invalidStatusCode
             }
           }
           catch {
@@ -79,8 +78,6 @@ class RemoteMessageGateway: MessageGateway {
             resultHandler(result)
           }
         }
-        
-        task.resume()
       }
       catch {
         let result = Result<[Message], Error>.failure(error)

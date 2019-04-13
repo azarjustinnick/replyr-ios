@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		574D605A22628E93007F69C7 /* URL+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D605922628E93007F69C7 /* URL+Additions.swift */; };
+		574D605C226295E4007F69C7 /* HTTPOutputHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D605B226295E4007F69C7 /* HTTPOutputHead.swift */; };
+		574D605E226295F6007F69C7 /* HTTPOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D605D226295F6007F69C7 /* HTTPOutput.swift */; };
+		574D60602262960D007F69C7 /* HTTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D605F2262960D007F69C7 /* HTTPField.swift */; };
+		574D60622262961E007F69C7 /* HTTPInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D60612262961E007F69C7 /* HTTPInput.swift */; };
+		574D606422629637007F69C7 /* HTTPInputHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D606322629637007F69C7 /* HTTPInputHead.swift */; };
+		574D60662262964C007F69C7 /* HTTPInputHeadMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D60652262964C007F69C7 /* HTTPInputHeadMethod.swift */; };
+		574D606822629793007F69C7 /* URLSession+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D606722629793007F69C7 /* URLSession+Additions.swift */; };
+		574D606A22629C6E007F69C7 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D606922629C6E007F69C7 /* Channel.swift */; };
 		57CCDA9B22624AFE00CB4F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */; };
 		57CCDA9D22624AFE00CB4F15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */; };
 		57CCDAA022624AFE00CB4F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57CCDA9E22624AFE00CB4F15 /* Main.storyboard */; };
@@ -24,6 +32,14 @@
 
 /* Begin PBXFileReference section */
 		574D605922628E93007F69C7 /* URL+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Additions.swift"; sourceTree = "<group>"; };
+		574D605B226295E4007F69C7 /* HTTPOutputHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPOutputHead.swift; sourceTree = "<group>"; };
+		574D605D226295F6007F69C7 /* HTTPOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPOutput.swift; sourceTree = "<group>"; };
+		574D605F2262960D007F69C7 /* HTTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPField.swift; sourceTree = "<group>"; };
+		574D60612262961E007F69C7 /* HTTPInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPInput.swift; sourceTree = "<group>"; };
+		574D606322629637007F69C7 /* HTTPInputHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPInputHead.swift; sourceTree = "<group>"; };
+		574D60652262964C007F69C7 /* HTTPInputHeadMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPInputHeadMethod.swift; sourceTree = "<group>"; };
+		574D606722629793007F69C7 /* URLSession+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Additions.swift"; sourceTree = "<group>"; };
+		574D606922629C6E007F69C7 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		57CCDA9722624AFE00CB4F15 /* Replyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Replyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +88,13 @@
 			children = (
 				57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */,
 				57CCDAA422624AFF00CB4F15 /* Assets.xcassets */,
+				574D606922629C6E007F69C7 /* Channel.swift */,
+				574D605F2262960D007F69C7 /* HTTPField.swift */,
+				574D60612262961E007F69C7 /* HTTPInput.swift */,
+				574D606322629637007F69C7 /* HTTPInputHead.swift */,
+				574D60652262964C007F69C7 /* HTTPInputHeadMethod.swift */,
+				574D605D226295F6007F69C7 /* HTTPOutput.swift */,
+				574D605B226295E4007F69C7 /* HTTPOutputHead.swift */,
 				57CCDAA922624AFF00CB4F15 /* Info.plist */,
 				57CCDAA622624AFF00CB4F15 /* LaunchScreen.storyboard */,
 				57CCDAB92262712B00CB4F15 /* LocalMessageGateway.swift */,
@@ -84,6 +107,7 @@
 				57CCDAA122624AFE00CB4F15 /* Replyr.xcdatamodeld */,
 				57CCDAB522626A3D00CB4F15 /* ResultHandler.swift */,
 				574D605922628E93007F69C7 /* URL+Additions.swift */,
+				574D606722629793007F69C7 /* URLSession+Additions.swift */,
 			);
 			path = Replyr;
 			sourceTree = "<group>";
@@ -161,12 +185,20 @@
 			files = (
 				57CCDA9D22624AFE00CB4F15 /* MainViewController.swift in Sources */,
 				57CCDAB22262688500CB4F15 /* MessageSpec.swift in Sources */,
+				574D606422629637007F69C7 /* HTTPInputHead.swift in Sources */,
 				57CCDAB42262690100CB4F15 /* RemoteMessageGateway.swift in Sources */,
 				57CCDAB622626A3D00CB4F15 /* ResultHandler.swift in Sources */,
 				57CCDAB022625BEF00CB4F15 /* Message.swift in Sources */,
 				57CCDA9B22624AFE00CB4F15 /* AppDelegate.swift in Sources */,
+				574D606A22629C6E007F69C7 /* Channel.swift in Sources */,
+				574D60662262964C007F69C7 /* HTTPInputHeadMethod.swift in Sources */,
 				57CCDAB8226270FD00CB4F15 /* MessageGateway.swift in Sources */,
+				574D605C226295E4007F69C7 /* HTTPOutputHead.swift in Sources */,
+				574D605E226295F6007F69C7 /* HTTPOutput.swift in Sources */,
+				574D60602262960D007F69C7 /* HTTPField.swift in Sources */,
+				574D60622262961E007F69C7 /* HTTPInput.swift in Sources */,
 				57CCDAA322624AFE00CB4F15 /* Replyr.xcdatamodeld in Sources */,
+				574D606822629793007F69C7 /* URLSession+Additions.swift in Sources */,
 				57CCDABA2262712B00CB4F15 /* LocalMessageGateway.swift in Sources */,
 				574D605A22628E93007F69C7 /* URL+Additions.swift in Sources */,
 			);

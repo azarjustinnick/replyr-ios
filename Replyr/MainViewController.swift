@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
   @IBOutlet weak var textTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
   
-  private let messageGateway = LocalMessageGateway()
+  private let messageGateway = RemoteMessageGateway()
   private var messages = [Message]()
   
   override func viewDidLoad() {
