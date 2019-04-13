@@ -21,7 +21,7 @@ class RemoteMessageGateway: MessageGateway {
           let httpOutput = try result.get()
           
           switch httpOutput.head.statusCode {
-            case 200:
+            case 201:
               let result = Result<Void, Error>.success(())
               resultHandler(result)
             default:
@@ -66,7 +66,9 @@ class RemoteMessageGateway: MessageGateway {
                 throw MessageGatewayError.dataNotFound
               }
               
-              let messages = try JSONDecoder().decode(Channel.self, from: body).messages
+              let decoder = JSONDecoder()
+              decoder.dateDecodingStrategy = .millisecondsSince1970
+              let messages = try decoder.decode(Channel.self, from: body).messages
               let result = Result<[Message], Error>.success(messages)
               resultHandler(result)
             default:

@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     textTextField.delegate = self
+    fetchMessages()
   }
   
   private func fetchMessages() {
