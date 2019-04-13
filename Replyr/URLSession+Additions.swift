@@ -37,8 +37,7 @@ extension URLSession {
           head: HTTPOutputHead(
             fields: fields,
             statusCode: response.statusCode,
-            url: url,
-            version: nil
+            url: url
           )
         )
         
