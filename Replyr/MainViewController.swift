@@ -1,6 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+  @IBOutlet weak var keyboardViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var textTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
@@ -17,6 +18,16 @@ class MainViewController: UIViewController {
     textTextField.delegate = self
     textTextField.becomeFirstResponder()
     fetchMessages()
+    
+    NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification, object: nil, queue: nil) { [weak self] notification in
+      if let keyboard = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect) {
+        self?.keyboardViewHeightConstraint.constant = keyboard.height
+      }
+    }
+    
+    NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { [weak self] notification in
+      self?.keyboardViewHeightConstraint.constant = 0
+    }
   }
   
   private func fetchMessages() {
@@ -27,6 +38,13 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
           self?.messages = messages
           self?.tableView.reloadData()
+          
+          let indexPath = IndexPath(
+            row: messages.count - 1,
+            section: 0
+          )
+          
+          self?.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
       }
       catch {
@@ -49,10 +67,10 @@ class MainViewController: UIViewController {
       username: username
     )
     
-//    let backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: UUID().uuidString)
+    let backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: UUID().uuidString)
     
     messageGateway.addMessage(with: messageSpec) { [weak self] result in
-//      UIApplication.shared.endBackgroundTask(backgroundTaskID)
+      UIApplication.shared.endBackgroundTask(backgroundTaskID)
       
       do {
         try result.get()

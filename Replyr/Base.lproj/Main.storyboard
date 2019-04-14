@@ -39,7 +39,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="send"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fH-4i-Mta">
-                                <rect key="frame" x="0.0" y="214" width="414" height="648"/>
+                                <rect key="frame" x="0.0" y="214" width="414" height="682"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Message" textLabel="SEV-uG-yAq" detailTextLabel="DxW-o4-SgM" style="IBUITableViewCellStyleSubtitle" id="AwX-eM-lfI">
@@ -74,22 +74,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZC-of-CvI">
+                                <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="KJy-wQ-6gi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="56d-Dd-YBZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2qn-KW-zwc"/>
                             <constraint firstItem="8fH-4i-Mta" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Is1-X0-rr0"/>
                             <constraint firstItem="56d-Dd-YBZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JKP-El-ALM"/>
+                            <constraint firstItem="1ZC-of-CvI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="S61-Qd-Op6"/>
+                            <constraint firstAttribute="trailing" secondItem="1ZC-of-CvI" secondAttribute="trailing" id="U3G-AX-gdE"/>
+                            <constraint firstAttribute="bottom" secondItem="1ZC-of-CvI" secondAttribute="bottom" id="aUR-ZN-GeM"/>
                             <constraint firstItem="8fH-4i-Mta" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bVz-mv-Kur"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="56d-Dd-YBZ" secondAttribute="trailing" constant="20" id="bni-dv-BQP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YRC-6T-Yw8" secondAttribute="trailing" constant="20" id="euo-hC-bxL"/>
                             <constraint firstItem="nBX-Ct-Z9j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gmo-sp-yle"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8fH-4i-Mta" secondAttribute="bottom" id="gnS-8T-fnh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nBX-Ct-Z9j" secondAttribute="trailing" constant="20" id="kpu-A2-9ze"/>
                             <constraint firstItem="nBX-Ct-Z9j" firstAttribute="top" secondItem="56d-Dd-YBZ" secondAttribute="bottom" constant="20" id="nHA-sN-vnd"/>
                             <constraint firstItem="YRC-6T-Yw8" firstAttribute="width" secondItem="IQ2-jI-Drx" secondAttribute="width" id="nZH-EW-dJv"/>
                             <constraint firstItem="YRC-6T-Yw8" firstAttribute="top" secondItem="nBX-Ct-Z9j" secondAttribute="bottom" constant="20" id="obB-eo-IyI"/>
                             <constraint firstItem="YRC-6T-Yw8" firstAttribute="leading" secondItem="IQ2-jI-Drx" secondAttribute="trailing" constant="20" id="pfX-ad-Xo9"/>
+                            <constraint firstItem="1ZC-of-CvI" firstAttribute="top" secondItem="8fH-4i-Mta" secondAttribute="bottom" id="q2N-Te-nce"/>
                             <constraint firstItem="IQ2-jI-Drx" firstAttribute="top" secondItem="nBX-Ct-Z9j" secondAttribute="bottom" constant="20" id="ufc-Tf-16f"/>
                             <constraint firstItem="8fH-4i-Mta" firstAttribute="top" secondItem="IQ2-jI-Drx" secondAttribute="bottom" constant="20" id="vi9-sk-aaq"/>
                             <constraint firstItem="IQ2-jI-Drx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wXD-ki-P3c"/>
@@ -97,6 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="keyboardViewHeightConstraint" destination="KJy-wQ-6gi" id="tm1-Fm-lGf"/>
                         <outlet property="tableView" destination="8fH-4i-Mta" id="RkG-HI-oDN"/>
                         <outlet property="textTextField" destination="nBX-Ct-Z9j" id="1ia-wl-CVF"/>
                         <outlet property="usernameTextField" destination="56d-Dd-YBZ" id="IsU-iM-3l6"/>
