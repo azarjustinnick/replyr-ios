@@ -101,9 +101,8 @@ extension MainViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath)
-    cell.detailTextLabel?.text = messages[indexPath.row].text
-    cell.textLabel?.text = messages[indexPath.row].username
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath) as! MessageCell
+    cell.messageTextLabel?.text = messages[indexPath.row].text
     return cell
   }
 }

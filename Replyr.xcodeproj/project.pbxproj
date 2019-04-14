@@ -16,6 +16,7 @@
 		574D60662262964C007F69C7 /* HTTPInputHeadMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D60652262964C007F69C7 /* HTTPInputHeadMethod.swift */; };
 		574D606822629793007F69C7 /* URLSession+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D606722629793007F69C7 /* URLSession+Additions.swift */; };
 		574D606A22629C6E007F69C7 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D606922629C6E007F69C7 /* Channel.swift */; };
+		574D606C2262D300007F69C7 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D606B2262D300007F69C7 /* MessageCell.swift */; };
 		57CCDA9B22624AFE00CB4F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */; };
 		57CCDA9D22624AFE00CB4F15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */; };
 		57CCDAA022624AFE00CB4F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57CCDA9E22624AFE00CB4F15 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		574D60652262964C007F69C7 /* HTTPInputHeadMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPInputHeadMethod.swift; sourceTree = "<group>"; };
 		574D606722629793007F69C7 /* URLSession+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Additions.swift"; sourceTree = "<group>"; };
 		574D606922629C6E007F69C7 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		574D606B2262D300007F69C7 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		57CCDA9722624AFE00CB4F15 /* Replyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Replyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57CCDA9A22624AFE00CB4F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				57CCDA9E22624AFE00CB4F15 /* Main.storyboard */,
 				57CCDA9C22624AFE00CB4F15 /* MainViewController.swift */,
 				57CCDAAF22625BEF00CB4F15 /* Message.swift */,
+				574D606B2262D300007F69C7 /* MessageCell.swift */,
 				57CCDAB12262688500CB4F15 /* MessageSpec.swift */,
 				57CCDAB32262690100CB4F15 /* RemoteChannelGateway.swift */,
 				57CCDAA122624AFE00CB4F15 /* Replyr.xcdatamodeld */,
@@ -193,6 +196,7 @@
 				574D606A22629C6E007F69C7 /* Channel.swift in Sources */,
 				574D60662262964C007F69C7 /* HTTPInputHeadMethod.swift in Sources */,
 				57CCDAB8226270FD00CB4F15 /* ChannelGateway.swift in Sources */,
+				574D606C2262D300007F69C7 /* MessageCell.swift in Sources */,
 				574D605C226295E4007F69C7 /* HTTPOutputHead.swift in Sources */,
 				574D605E226295F6007F69C7 /* HTTPOutput.swift in Sources */,
 				574D60602262960D007F69C7 /* HTTPField.swift in Sources */,
