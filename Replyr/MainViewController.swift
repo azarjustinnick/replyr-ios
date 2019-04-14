@@ -11,6 +11,8 @@ class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = 600
     tableView.dataSource = self
     tableView.delegate = self
     usernameTextField.text = "replyr-ios"
