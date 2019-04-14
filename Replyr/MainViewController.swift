@@ -12,7 +12,10 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     tableView.dataSource = self
     tableView.delegate = self
+    usernameTextField.text = "replyr-ios"
+    usernameTextField.delegate = self
     textTextField.delegate = self
+    textTextField.becomeFirstResponder()
     fetchMessages()
   }
   
@@ -83,6 +86,7 @@ extension MainViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath)
     cell.detailTextLabel?.text = messages[indexPath.row].text
     cell.textLabel?.text = messages[indexPath.row].username
+    print(messages[indexPath.row].timestamp)
     return cell
   }
 }
@@ -93,7 +97,13 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    sendMessage()
+    if textField == usernameTextField {
+      textTextField.becomeFirstResponder()
+    }
+    else if textField == textTextField {
+      sendMessage()
+    }
+    
     return false
   }
 }
