@@ -3,7 +3,12 @@ import Foundation
 extension URLSession {
   func httpOutput(withHTTPInput httpInput: HTTPInput, resultHandler: @escaping ResultHandler<HTTPOutput, Error>) {
     var request = URLRequest(url: httpInput.head.url)
+    request.httpMethod = httpInput.head.method.rawValue
     request.httpBody = httpInput.body
+    
+    for field in httpInput.head.fields {
+      request.addValue(field.value, forHTTPHeaderField: field.name)
+    }
     
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
       do {

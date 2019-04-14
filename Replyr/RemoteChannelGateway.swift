@@ -17,7 +17,12 @@ class RemoteChannelGateway: ChannelGateway {
         let httpInput = HTTPInput(
           body: try JSONEncoder().encode(spec),
           head: HTTPInputHead(
-            fields: [HTTPField](),
+            fields: [
+              HTTPField(
+                name: "Content-Type",
+                value: "application/json"
+              )
+            ],
             method: .post,
             url: self.url.appendingPathComponent("message")
           )

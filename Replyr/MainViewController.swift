@@ -49,10 +49,10 @@ class MainViewController: UIViewController {
       username: username
     )
     
-    let backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: UUID().uuidString)
+//    let backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: UUID().uuidString)
     
     messageGateway.addMessage(with: messageSpec) { [weak self] result in
-      UIApplication.shared.endBackgroundTask(backgroundTaskID)
+//      UIApplication.shared.endBackgroundTask(backgroundTaskID)
       
       do {
         try result.get()
@@ -86,7 +86,6 @@ extension MainViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath)
     cell.detailTextLabel?.text = messages[indexPath.row].text
     cell.textLabel?.text = messages[indexPath.row].username
-    print(messages[indexPath.row].timestamp)
     return cell
   }
 }
