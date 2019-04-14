@@ -1,6 +1,6 @@
 import Foundation
 
-class LocalMessageGateway: MessageGateway {
+class LocalChannelGateway: ChannelGateway {
   init() {
     self.messages = [Message]()
     self.queue = DispatchQueue(label: "LocalMessageGateway")
