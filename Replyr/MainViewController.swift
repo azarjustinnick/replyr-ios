@@ -6,6 +6,7 @@ class MainViewController: UIViewController {
   @IBOutlet weak var textTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
   
+  private var firstFetchCompleted = false
   private let messageGateway = RemoteChannelGateway(name: "general")!
   private var messages = [Message]()
   
@@ -19,11 +20,19 @@ class MainViewController: UIViewController {
     usernameTextField.delegate = self
     textTextField.delegate = self
     textTextField.becomeFirstResponder()
-    fetchMessages()
     
     NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification, object: nil, queue: nil) { [weak self] notification in
       if let keyboard = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect) {
-        self?.keyboardViewHeightConstraint.constant = keyboard.height
+        guard let self = self else {
+          return
+        }
+        
+        self.keyboardViewHeightConstraint.constant = keyboard.height
+        
+        if !self.firstFetchCompleted {
+          self.firstFetchCompleted = true
+          self.fetchMessages()
+        }
       }
     }
     
@@ -32,7 +41,7 @@ class MainViewController: UIViewController {
     }
   }
   
-  private func fetchMessages() {
+  private func fetchMessages(animated: Bool = false) {
     messageGateway.messages() { [weak self] result in
       do {
         let messages = try result.get()
@@ -46,7 +55,7 @@ class MainViewController: UIViewController {
             section: messages.count - 1
           )
           
-          self?.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+          self?.tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
         }
       }
       catch {
@@ -79,7 +88,7 @@ class MainViewController: UIViewController {
         
         DispatchQueue.main.async { [weak self] in
           self?.textTextField.text = nil
-          self?.fetchMessages()
+          self?.fetchMessages(animated: true)
         }
       }
       catch {
