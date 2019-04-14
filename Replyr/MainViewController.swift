@@ -42,8 +42,8 @@ class MainViewController: UIViewController {
           self?.tableView.reloadData()
           
           let indexPath = IndexPath(
-            row: messages.count - 1,
-            section: 0
+            row: 0,
+            section: messages.count - 1
           )
           
           self?.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
@@ -98,13 +98,21 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return messages[section].username
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
     return messages.count
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath) as! MessageCell
-    cell.messageTextLabel?.text = messages[indexPath.row].text
+    cell.messageTextLabel?.text = messages[indexPath.section].text
     return cell
   }
 }
